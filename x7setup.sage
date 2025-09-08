@@ -106,12 +106,35 @@ def d6inv(sd,v):
 	d4inv(sd,v);
 	applyperm(v,rperm,2);
 
-#--------------------------------------
 
-#print cluster variable at vertex 1 2 3 4 5 6 0
-def printvertexvars(sd,v):
-	sdvars = sd.cluster_variables()
-	pretty_print(sdvars[v[0]-1], sdvars[v[1]-1], sdvars[v[2]-1], sdvars[v[3]-1], sdvars[v[4]-1], sdvars[v[5]-1], sdvars[v[6]-1])
+#---------------------------------------
+
+#psi1 = r^3 s1
+def psi1(sd,v):
+	sd.mutate(v[0]-1); applyperm(v,s1perm,1);
+	applyperm(v,rperm,3);
+
+def psi1inv(sd,v):
+	applyperm(v,rperm,3);
+	sd.mutate(v[0]-1); applyperm(v,s1perm,1);
+
+#psi3 = r^3 s3
+def psi3(sd,v):
+	sd.mutate(v[2]-1); applyperm(v,s3perm,1);
+	applyperm(v,rperm,3);
+
+def psi3inv(sd,v):
+	applyperm(v,rperm,3);
+	sd.mutate(v[2]-1); applyperm(v,s3perm,1);
+
+#psi5 = r^3 s5
+def psi5(sd,v):
+	sd.mutate(v[4]-1); applyperm(v,s5perm,1);
+	applyperm(v,rperm,3);
+
+def psi5inv(sd,v):
+	applyperm(v,rperm,3);
+	sd.mutate(v[4]-1); applyperm(v,s5perm,1);
 
 #--------------------------------------
 
@@ -131,64 +154,9 @@ def rsss1(sd,v):
 	sd.mutate(v[0]-1); applyperm(v,s1perm,1);
 	applyperm(v,rperm,1);
 
-#---------------------------------------
+#--------------------------------------
 
-def psi1(sd,v):
-	d1(sd,v); d2(sd,v); d3(sd,v); d4(sd,v); d5(sd,v);
-	d5(sd,v);
-	d4inv(sd,v);
-	d2(sd,v);
-	d5(sd,v); d4(sd,v); d3(sd,v); d2(sd,v); d1(sd,v);
-	d1(sd,v);
-	d3inv(sd,v);
-	d5(sd,v);
-	d3inv(sd,v);
-	d1(sd,v); d2(sd,v); d3(sd,v); d4(sd,v); d5(sd,v);
-	d5(sd,v);
-	d1(sd,v);
-	d5(sd,v); d4(sd,v); d3(sd,v); d2(sd,v); d1(sd,v);
-	d5(sd,v); d4(sd,v); d3(sd,v); d2(sd,v); d1(sd,v);
-
-def psi1inv(sd,v):
-	applyperm(v,rperm,3);
-	sd.mutate(v[0]-1); applyperm(v,s1perm,1);
-
-def psi3(sd,v):
-	d1(sd,v); d2(sd,v); d3(sd,v); d4(sd,v); d5(sd,v);
-	d1(sd,v); d2(sd,v); d3(sd,v); d4(sd,v); d5(sd,v);
-	d1(sd,v); d2(sd,v); d3(sd,v); d4(sd,v); d5(sd,v);
-	d5(sd,v);
-	d4inv(sd,v);
-	d2(sd,v);
-	d5(sd,v); d4(sd,v); d3(sd,v); d2(sd,v); d1(sd,v);
-	d1(sd,v);
-	d3inv(sd,v);
-	d5(sd,v);
-	d3inv(sd,v);
-	d1(sd,v); d2(sd,v); d3(sd,v); d4(sd,v); d5(sd,v);
-	d5(sd,v);
-	d1(sd,v);
-	d1(sd,v); d2(sd,v); d3(sd,v); d4(sd,v); d5(sd,v);
-	d1(sd,v); d2(sd,v); d3(sd,v); d4(sd,v); d5(sd,v);
-
-def psi3inv(sd,v):
-	applyperm(v,rperm,3);
-	sd.mutate(v[2]-1); applyperm(v,s3perm,1);
-
-def psi5(sd,v):
-	d5(sd,v); d4(sd,v); d3(sd,v); d2(sd,v); d1(sd,v);
-	d5(sd,v);
-	d4inv(sd,v);
-	d2(sd,v);
-	d5(sd,v); d4(sd,v); d3(sd,v); d2(sd,v); d1(sd,v);
-	d1(sd,v);
-	d3inv(sd,v);
-	d5(sd,v);
-	d3inv(sd,v);
-	d1(sd,v); d2(sd,v); d3(sd,v); d4(sd,v); d5(sd,v);
-	d5(sd,v);
-	d1(sd,v);
-
-def psi5inv(sd,v):
-	applyperm(v,rperm,3);
-	sd.mutate(v[4]-1); applyperm(v,s5perm,1);
+#print cluster variable at vertex 1 2 3 4 5 6 0
+def printvertexvars(sd,v):
+	sdvars = sd.cluster_variables()
+	pretty_print(sdvars[v[0]-1], sdvars[v[1]-1], sdvars[v[2]-1], sdvars[v[3]-1], sdvars[v[4]-1], sdvars[v[5]-1], sdvars[v[6]-1])

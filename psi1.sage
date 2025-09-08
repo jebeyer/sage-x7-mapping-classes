@@ -5,9 +5,10 @@ load("x7setup.sage")
 
 print("Initial cluster :"); printvertexvars(S,verts);
 
-applyperm(verts,rperm,3);
-S.mutate(verts[0]-1); applyperm(verts,s1perm,1);
-#print("After psi1^-1 = s1 r^3 :"); printvertexvars(S,verts);
+#applyperm(verts,rperm,3);
+#S.mutate(verts[0]-1); applyperm(verts,s1perm,1);
+psi1inv(S,verts);
+print("\nAfter psi1^-1 = s1 r^3 :"); printvertexvars(S,verts);
 
 d1(S,verts); d2(S,verts); d3(S,verts); d4(S,verts); d5(S,verts);
 d5(S,verts);
